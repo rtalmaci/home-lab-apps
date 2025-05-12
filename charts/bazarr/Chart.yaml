@@ -1,0 +1,13 @@
+apiVersion: v2
+kubeVersion: ">=1.23.0-0"
+name: bazarr
+description: bazarr helm chart for Kubernetes
+type: application
+version: 1.0.0
+
+appVersion: "1.5.1"
+maintainers: []
+sources:
+  - https://github.com/morpheus65535/bazarr
+  - https://docs.linuxserver.io/images/docker-bazarr/
+home: https://github.com/morpheus65535/bazarr

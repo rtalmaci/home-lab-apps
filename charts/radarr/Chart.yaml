@@ -1,0 +1,12 @@
+apiVersion: v2
+kubeVersion: ">=1.23.0-0"
+name: radarr
+description: radarr helm chart for Kubernetes
+type: application
+version: 2.6.0
+appVersion: "5.22.4"
+maintainers: []
+sources:
+  - https://docs.linuxserver.io/images/docker-radarr/
+  - https://github.com/Radarr/Radarr
+home: https://github.com/Radarr/Radarr
