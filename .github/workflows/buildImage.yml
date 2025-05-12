@@ -11,6 +11,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Set up Docker
         uses: docker/setup-docker-action@v4.3.0
       - name: Login to Docker Hub
@@ -21,6 +25,5 @@ jobs:
 
       - name: Build default backend
         run: |
-          cd defaultbackend
-          docker build . -t alexandrutalmaciu/defaultbackend:v1
+          docker build defaultbackend/. -t alexandrutalmaciu/defaultbackend:v1
           docker push alexandrutalmaciu/defaultbackend:${{github.event.inputs.version }}
