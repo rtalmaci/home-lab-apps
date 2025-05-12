@@ -1,0 +1,151 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "qbittorrent.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "qbittorrent.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.qbittorrent.replicaCount }}
+  strategy:
+    type: {{ .Values.qbittorrent.strategy.type }}
+  selector:
+    matchLabels:
+      {{- include "qbittorrent.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.qbittorrent.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "qbittorrent.labels" . | nindent 8 }}
+        {{- with .Values.qbittorrent.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.qbittorrent.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "qbittorrent.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.qbittorrent.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.qbittorrent.securityContext | nindent 12 }}
+          {{- if .Values.qbittorrent.image.sha }}
+          image: "{{ .Values.qbittorrent.image.registry }}/{{ .Values.qbittorrent.image.repository }}:{{ .Values.qbittorrent.image.tag | default .Chart.AppVersion }}@sha256:{{ .Values.qbittorrent.image.sha }}"
+          {{- else }}
+          image: "{{ .Values.qbittorrent.image.registry }}/{{ .Values.qbittorrent.image.repository }}:{{ .Values.qbittorrent.image.tag | default .Chart.AppVersion }}"
+          {{- end }}
+          imagePullPolicy: {{ .Values.qbittorrent.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: torrent-tcp
+              containerPort: 50413
+              protocol: TCP
+            - name: torrent-udp
+              containerPort: 50413
+              protocol: UDP
+          livenessProbe:
+            {{- toYaml .Values.qbittorrent.livenessProbe | nindent 12}}
+          readinessProbe:
+            {{- toYaml .Values.qbittorrent.readinessProbe | nindent 12}}
+          resources:
+            {{- toYaml .Values.qbittorrent.resources | nindent 12 }}
+          {{- with .Values.qbittorrent.extraEnv }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.qbittorrent.extraEnvFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if or .Values.qbittorrent.config.persistence.enabled .Values.qbittorrent.volumeMounts }}
+          volumeMounts:
+          {{- if .Values.qbittorrent.config.persistence.enabled }}
+            - name: config
+              mountPath: /config
+          {{- end }}
+          {{- with .Values.qbittorrent.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- end }}
+
+        {{- if .Values.prometheusQbittorrentExporter.enabled }}
+        - name: prometheus-qbittorrent-exporter
+          securityContext:
+            {{- toYaml .Values.prometheusQbittorrentExporter.securityContext | nindent 12 }}
+          {{- if .Values.prometheusQbittorrentExporter.image.sha }}
+          image: "{{ .Values.prometheusQbittorrentExporter.image.registry }}/{{ .Values.prometheusQbittorrentExporter.image.repository }}:{{ .Values.prometheusQbittorrentExporter.image.tag }}@sha256:{{ .Values.prometheusQbittorrentExporter.image.sha }}"
+          {{- else }}
+          image: "{{ .Values.prometheusQbittorrentExporter.image.registry }}/{{ .Values.prometheusQbittorrentExporter.image.repository }}:{{ .Values.prometheusQbittorrentExporter.image.tag }}"
+          {{- end }}
+          imagePullPolicy: {{ .Values.prometheusQbittorrentExporter.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8100
+              protocol: TCP
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "wget --no-verbose --tries=1 --spider http://127.0.0.1:8100 || exit 1"
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "wget --no-verbose --tries=1 --spider http://127.0.0.1:8100 || exit 1"
+          resources:
+            {{- toYaml .Values.prometheusQbittorrentExporter.resources | nindent 12 }}
+          env:
+            - name: EXPORTER_PORT
+              value: "8100"
+            - name: QBITTORRENT_HOST
+              value: "localhost"
+            - name: QBITTORRENT_PORT
+              value: "8080"
+          {{- with .Values.prometheusQbittorrentExporter.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.prometheusQbittorrentExporter.extraEnvFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.prometheusQbittorrentExporter.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+        {{- end }}
+        {{- with .Values.qbittorrent.extraContainers }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- if or .Values.qbittorrent.config.persistence.enabled .Values.qbittorrent.volumes }}
+      volumes:
+      {{- if .Values.qbittorrent.config.persistence.enabled }}
+        - name: config
+          persistentVolumeClaim:
+            claimName: {{ include "qbittorrent.configPersistenceName" . }}
+      {{- end }}
+      {{- with .Values.qbittorrent.volumes }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- end }}
+      {{- with .Values.qbittorrent.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.qbittorrent.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.qbittorrent.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
