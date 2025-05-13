@@ -36,19 +36,20 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext:
-  fsGroup: 65534
+  fsGroup: 0
   fsGroupChangePolicy: OnRootMismatch
 
 securityContext:
-  allowPrivilegeEscalation: false
+  allowPrivilegeEscalation: true
   capabilities:
-    drop:
-      - ALL
+    add:
+      - SETUID
+      - SETGID
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  runAsNonRoot: false
   privileged: false
-  runAsUser: 65534
-  runAsGroup: 65534
+  runAsUser: 0
+  runAsGroup: 0
   seccompProfile:
     type: RuntimeDefault
 
