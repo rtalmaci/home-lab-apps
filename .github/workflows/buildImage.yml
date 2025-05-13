@@ -25,5 +25,5 @@ jobs:
 
       - name: Build default backend
         run: |
-          docker build defaultbackend/. -t alexandrutalmaciu/defaultbackend:v1
+          docker build defaultbackend/. -t alexandrutalmaciu/defaultbackend:${{github.event.inputs.version }}
           docker push alexandrutalmaciu/defaultbackend:${{github.event.inputs.version }}
