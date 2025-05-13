@@ -3,6 +3,21 @@ entries:
   bazarr:
   - apiVersion: v2
     appVersion: 1.5.2
+    created: "2025-05-13T09:57:48.39024658Z"
+    description: bazarr helm chart for Kubernetes
+    digest: 97526b74be59e3c245b9dee32800138c06fa6097d69d93bad0bfccb8bc2a5b0d
+    home: https://github.com/morpheus65535/bazarr
+    kubeVersion: '>=1.23.0-0'
+    name: bazarr
+    sources:
+    - https://github.com/morpheus65535/bazarr
+    - https://docs.linuxserver.io/images/docker-bazarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/bazarr-1.0.3/bazarr-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.5.2
     created: "2025-05-13T09:34:36.94871337Z"
     description: bazarr helm chart for Kubernetes
     digest: d00f11608dc10f295e8b21232ac8067e11b95781f64c8dcc06071c36081bc1da
@@ -49,6 +64,21 @@ entries:
   prowlarr:
   - apiVersion: v2
     appVersion: 1.35.1
+    created: "2025-05-13T09:57:48.519470472Z"
+    description: prowlarr helm chart for Kubernetes
+    digest: f4e277b737e3083667e017d2cc4be2e894b5038eece4df4bc38de9e0be366709
+    home: https://github.com/prowlarr/prowlarr
+    kubeVersion: '>=1.23.0-0'
+    name: prowlarr
+    sources:
+    - https://github.com/prowlarr/prowlarr
+    - https://docs.linuxserver.io/images/docker-prowlarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/prowlarr-1.0.2/prowlarr-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.35.1
     created: "2025-05-13T07:54:42.45796574Z"
     description: prowlarr helm chart for Kubernetes
     digest: 27964e6a4c714bd2d0667286a23aed61606de04557968561ac72f8790e52eb57
@@ -80,6 +110,21 @@ entries:
   qbittorrent:
   - apiVersion: v2
     appVersion: 5.1.0
+    created: "2025-05-13T09:57:48.660674336Z"
+    description: qbittorrent helm chart for Kubernetes
+    digest: f2b4887a8f95bb3de935f641f1b7c5747f747f93db879aabab92792747d40729
+    home: https://github.com/qbittorrent/qBittorrent
+    kubeVersion: '>=1.23.0-0'
+    name: qbittorrent
+    sources:
+    - https://docs.linuxserver.io/images/docker-qbittorrent/
+    - https://github.com/qbittorrent/qBittorrent
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/qbittorrent-1.0.1/qbittorrent-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 5.1.0
     created: "2025-05-12T17:43:06.453362377Z"
     description: qbittorrent helm chart for Kubernetes
     digest: 19f5d05e86880e6bb44c97b4c37c1eb618bd080f9c025853bba0486e2acb2938
@@ -94,6 +139,21 @@ entries:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/qbittorrent-1.0.0/qbittorrent-1.0.0.tgz
     version: 1.0.0
   radarr:
+  - apiVersion: v2
+    appVersion: 5.22.4
+    created: "2025-05-13T09:57:48.782934644Z"
+    description: radarr helm chart for Kubernetes
+    digest: 10da927bb4847abf29b01d1b2c5e105f06a185126bfb6c8891288268e6c5eea3
+    home: https://github.com/Radarr/Radarr
+    kubeVersion: '>=1.23.0-0'
+    name: radarr
+    sources:
+    - https://docs.linuxserver.io/images/docker-radarr/
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/radarr-1.0.2/radarr-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 5.22.4
     created: "2025-05-13T07:54:42.719428804Z"
@@ -127,6 +187,21 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.11
+    created: "2025-05-13T09:57:48.923673533Z"
+    description: sonarr helm chart for Kubernetes
+    digest: 06dff36ef1d63da4426a60a30b825e6b3f35d99a4c76ff177785d918425da303
+    home: https://github.com/Sonarr/Sonarr
+    kubeVersion: '>=1.23.0-0'
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    - https://docs.linuxserver.io/images/docker-sonarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.2/sonarr-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 4.0.11
     created: "2025-05-13T07:54:42.836399133Z"
     description: sonarr helm chart for Kubernetes
     digest: 7371f40648c362dd3477b2083cefcb367e203b9a121dd5db25863f53727263ad
@@ -155,4 +230,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-13T09:34:36.948746722Z"
+generated: "2025-05-13T09:57:48.923738244Z"
