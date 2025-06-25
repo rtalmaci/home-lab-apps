@@ -20,6 +20,18 @@
         ]
       },
       "commitMessageTopic": "{{depName}} appVersion"
+    },
+    {
+      "matchPaths": ["**/Chart.yaml"],
+      "matchPackagePatterns": [".*"],
+      "groupName": "Helm chart version bumps",
+      "extractVersion": {
+        "fileMatch": ["Chart.yaml"],
+        "matchStrings": [
+          "version:\\s*\"?(?<currentValue>[^\"]+)\"?"
+        ]
+      },
+      "commitMessageTopic": "chart version"
     }
   ]
 }
