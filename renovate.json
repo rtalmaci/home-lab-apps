@@ -1,6 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:base"],
+  "helm": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["helm-values"],
+      "groupName": "Helm image updates"
+    },
+    {
+      "matchManagers": ["helm"],
+      "groupName": "Helm chart version updates"
+    }
   ]
 }
