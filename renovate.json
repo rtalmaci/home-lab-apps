@@ -29,15 +29,13 @@
       "commitMessageTopic": "Helm chart version"
     },
     {
+      "description": "Update chart version in Chart.yaml",
+      "matchManagers": ["regex"],
       "matchPaths": ["**/Chart.yaml"],
-      "matchPackagePatterns": [".*"],
+      "extractVersion": "version:\\s*\"?(?<currentValue>[^\"]+)\"?",
+      "depNameTemplate": "chartVersion",
+      "versioning": "semver",
       "groupName": "Helm chart version bumps",
-      "extractVersion": {
-        "fileMatch": ["Chart.yaml"],
-        "matchStrings": [
-          "version:\\s*\"?(?<currentValue>[^\"]+)\"?"
-        ]
-      },
       "commitMessageTopic": "chart version"
     }
   ]
