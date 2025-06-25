@@ -9,17 +9,24 @@
       "commitMessageTopic": "{{depName}} image tag"
     },
     {
-      "matchDatasources": ["docker"],
+      "description": "Update appVersion in Chart.yaml",
+      "matchManagers": ["regex"],
       "matchPaths": ["**/Chart.yaml"],
-      "matchPackagePatterns": [".*"],
+      "extractVersion": "appVersion:\\s*\"?(?<currentValue>[^\"]+)\"?",
+      "depNameTemplate": "appVersion",
+      "versioning": "semver",
       "groupName": "Helm appVersion updates",
-      "extractVersion": {
-        "fileMatch": ["Chart.yaml"],
-        "matchStrings": [
-          "appVersion:\\s*\"?(?<currentValue>[^\"]+)\"?"
-        ]
-      },
-      "commitMessageTopic": "{{depName}} appVersion"
+      "commitMessageTopic": "Helm appVersion"
+    },
+    {
+      "description": "Update version in Chart.yaml",
+      "matchManagers": ["regex"],
+      "matchPaths": ["**/Chart.yaml"],
+      "extractVersion": "version:\\s*\"?(?<currentValue>[^\"]+)\"?",
+      "depNameTemplate": "chartVersion",
+      "versioning": "semver",
+      "groupName": "Helm chart version updates",
+      "commitMessageTopic": "Helm chart version"
     },
     {
       "matchPaths": ["**/Chart.yaml"],
