@@ -1,17 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "helm": {
-    "enabled": true
-  },
+  "enabledManagers": ["helm-values"],
   "packageRules": [
     {
       "matchManagers": ["helm-values"],
-      "groupName": "Helm image updates"
+      "groupName": "Helm image tag updates",
+      "commitMessageTopic": "{{depName}} image tag"
     },
     {
-      "matchManagers": ["helm"],
-      "groupName": "Helm chart version updates"
+      "matchDatasources": ["docker"],
+      "matchPaths": ["**/Chart.yaml"],
+      "matchPackagePatterns": [".*"],
+      "groupName": "Helm appVersion updates",
+      "extractVersion": {
+        "fileMatch": ["Chart.yaml"],
+        "matchStrings": [
+          "appVersion:\\s*\"?(?<currentValue>[^\"]+)\"?"
+        ]
+      },
+      "commitMessageTopic": "{{depName}} appVersion"
     }
   ]
 }
