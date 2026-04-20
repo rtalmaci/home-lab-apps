@@ -5,7 +5,7 @@ description: radarr helm chart for Kubernetes
 type: application
 version: 1.0.2
 
-# image: ghcr.io/home-operations/radarr
+# image: lscr.io/linuxserver/radarr
 appVersion: "5.22.4"
 maintainers: []
 sources:
