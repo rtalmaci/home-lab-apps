@@ -22,7 +22,7 @@
       "matchFileNames": [
         "**/Chart.yaml"
       ],
-      "extractVersion": "appVersion:\\s*\"?(?<currentValue>[^\"]+)\"?",
+      "extractVersion": "#\\s+image:\\s+(?<depName>\\S*)\nappVersion:\\s*\"?(?<currentValue>[^\"]+)\"?",
       "depNameTemplate": "appVersion",
       "versioning": "semver",
       "groupName": "Helm appVersion updates",
@@ -36,25 +36,11 @@
       "matchFileNames": [
         "**/Chart.yaml"
       ],
-      "extractVersion": "version:\\s*\"?(?<currentValue>[^\"]+)\"?",
+      "extractVersion": "#\\s+image:\\s+(?<depName>\\S*)\nversion:\\s*\"?(?<currentValue>[^\"]+)\"?",
       "depNameTemplate": "chartVersion",
       "versioning": "semver",
       "groupName": "Helm chart version updates",
       "commitMessageTopic": "Helm chart version"
-    },
-    {
-      "description": "Update chart version in Chart.yaml",
-      "matchManagers": [
-        "custom.regex"
-      ],
-      "matchFileNames": [
-        "**/Chart.yaml"
-      ],
-      "extractVersion": "version:\\s*\"?(?<currentValue>[^\"]+)\"?",
-      "depNameTemplate": "chartVersion",
-      "versioning": "semver",
-      "groupName": "Helm chart version bumps",
-      "commitMessageTopic": "chart version"
     }
   ]
 }
