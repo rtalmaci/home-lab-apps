@@ -3,7 +3,10 @@ kubeVersion: ">=1.23.0-0"
 name: sonarr
 description: sonarr helm chart for Kubernetes
 type: application
+# image: lscr.io/linuxserver/sonarr
 version: 1.0.2
+
+# image: lscr.io/linuxserver/sonarr
 appVersion: "4.0.11"
 maintainers: []
 sources:

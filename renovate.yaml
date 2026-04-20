@@ -1,0 +1,27 @@
+extends:
+  - config:recommended
+
+enabledManagers:
+  - helm-values
+  - custom.regex
+
+customManagers:
+  - customType: regex
+    fileMatch:
+      - '(^|/)Chart\.yaml$'
+    matchStrings:
+      # Update appVersion from the image tag tracked for this chart
+      - '#\\s*image:\\s*(?<depName>\\S+)\\s*\\nappVersion:\\s*"?(?<currentValue>[^"\\n]+)"?'
+      # Update chart version from the same image dependency
+      - '#\\s*image:\\s*(?<depName>\\S+)\\s*\\nversion:\\s*"?(?<currentValue>[^"\\n]+)"?'
+    datasourceTemplate: docker
+    versioningTemplate: semver-coerced
+
+packageRules:
+  - matchManagers:
+      - helm-values
+      - custom.regex
+    groupName: Helm image and chart metadata updates
+    commitMessageTopic: '{{depName}}'
+    separateMultipleMajor: false
+    separateMinorPatch: false
