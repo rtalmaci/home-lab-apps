@@ -19,19 +19,23 @@
       "depNameTemplate": "{{{depName}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "semver",
-      "extractVersion": "^(?<version>\\d+\\.\\d+\\.\\d+)$"
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "packageRules": [
     {
+      "matchPackagePatterns": ["lscr.io/linuxserver/"],
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
       "matchPackageNames": ["lscr.io/linuxserver/qbittorrent"],
-      "ignoreVersions": ["/^(14|20)\\./"],
+      "allowedVersions": "!/^(14|20)\\./",
       "groupName": "qbittorrent",
       "additionalBranchPrefix": "qbittorrent-"
     },
     {
       "matchPackageNames": ["lscr.io/linuxserver/sonarr"],
-      "ignoreVersions": ["/^5\\./"],
+      "allowedVersions": "!/^5\\./",
       "groupName": "sonarr",
       "additionalBranchPrefix": "sonarr-"
     },
@@ -46,19 +50,9 @@
       "additionalBranchPrefix": "radarr-"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/sonarr"],
-      "groupName": "sonarr",
-      "additionalBranchPrefix": "sonarr-"
-    },
-    {
       "matchPackageNames": ["lscr.io/linuxserver/prowlarr"],
       "groupName": "prowlarr",
       "additionalBranchPrefix": "prowlarr-"
-    },
-    {
-      "matchPackageNames": ["lscr.io/linuxserver/qbittorrent"],
-      "groupName": "qbittorrent",
-      "additionalBranchPrefix": "qbittorrent-"
     }
   ]
 }
