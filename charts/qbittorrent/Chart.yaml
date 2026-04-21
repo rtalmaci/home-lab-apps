@@ -4,7 +4,7 @@ name: qbittorrent
 description: qbittorrent helm chart for Kubernetes
 type: application
 # image: lscr.io/linuxserver/qbittorrent
-version: 1.0.1
+version: 5.1.4
 # image: lscr.io/linuxserver/qbittorrent
 appVersion: "5.1.4"
 maintainers: []
