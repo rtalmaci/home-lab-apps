@@ -9,12 +9,12 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
+      "managerFilePatterns": [
         "(^|/)Chart\\.yaml$"
       ],
       "matchStrings": [
-        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nappVersion:\\s*\"?(?<currentValue>[^\"]+?)\"?",
-        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nversion:\\s*\"?(?<currentValue>[^\"]+?)\"?"
+        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nversion:\\s*\"?(?<currentValue>[^\"]+?)\"?",
+        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nappVersion:\\s*\"?(?<currentValue>[^\"]+?)\"?"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "semver-coerced"
@@ -23,7 +23,6 @@
   "packageRules": [
     {
       "matchManagers": [
-        "helm-values",
         "custom.regex"
       ],
       "groupName": "Helm image and chart metadata updates",
