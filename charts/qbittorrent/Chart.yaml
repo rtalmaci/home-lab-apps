@@ -6,7 +6,7 @@ type: application
 # image: lscr.io/linuxserver/qbittorrent
 version: 1.0.1
 # image: lscr.io/linuxserver/qbittorrent
-appVersion: "5.1.1"
+appVersion: "5.1.4"
 maintainers: []
 sources:
   - https://docs.linuxserver.io/images/docker-qbittorrent/
