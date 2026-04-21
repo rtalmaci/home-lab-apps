@@ -16,7 +16,7 @@
         "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nversion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?",
         "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nappVersion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?"
       ],
-      "depNameTemplate": "lscr.io/{{{depName}}}",
+      "depNameTemplate": "{{{depName}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "semver-coerced"
     }
