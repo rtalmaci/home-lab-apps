@@ -4,10 +4,10 @@ name: sonarr
 description: sonarr helm chart for Kubernetes
 type: application
 # image: lscr.io/linuxserver/sonarr
-version: 1.0.2
+version: 5.14
 
 # image: lscr.io/linuxserver/sonarr
-appVersion: "4.0.17"
+appVersion: "5.14"
 maintainers: []
 sources:
   - https://github.com/Sonarr/Sonarr
