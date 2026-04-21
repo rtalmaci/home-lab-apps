@@ -261,6 +261,21 @@ entries:
     version: 1.0.0
   sonarr:
   - apiVersion: v2
+    appVersion: "5.14"
+    created: "2026-04-21T11:38:16.565874421Z"
+    description: sonarr helm chart for Kubernetes
+    digest: 2538079233b6b0a4cbead59be8ab7b39a5783901752db47e9996cda947a8c356
+    home: https://github.com/Sonarr/Sonarr
+    kubeVersion: '>=1.23.0-0'
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    - https://docs.linuxserver.io/images/docker-sonarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-5.14/sonarr-5.14.tgz
+    version: "5.14"
+  - apiVersion: v2
     appVersion: 4.0.11
     created: "2025-05-13T09:57:48.923673533Z"
     description: sonarr helm chart for Kubernetes
@@ -305,4 +320,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-21T11:35:36.497736349Z"
+generated: "2026-04-21T11:38:16.565922281Z"
