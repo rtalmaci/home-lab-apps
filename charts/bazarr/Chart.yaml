@@ -4,9 +4,9 @@ name: bazarr
 description: bazarr helm chart for Kubernetes
 type: application
 # image: lscr.io/linuxserver/bazarr
-version: 1.0.3
+version: 1.5.6
 # image: lscr.io/linuxserver/bazarr
-appVersion: "1.5.2"
+appVersion: "1.5.6"
 maintainers: []
 sources:
   - https://github.com/morpheus65535/bazarr
