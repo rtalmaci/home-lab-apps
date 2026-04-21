@@ -13,22 +13,39 @@
         "/(^|/)Chart\\.yaml$/"
       ],
       "matchStrings": [
-        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nversion:\\s*\"?(?<currentValue>[^\"]+?)\"?",
-        "#\\s*image:\\s*(?<depName>\\S+)\\s*\\nappVersion:\\s*\"?(?<currentValue>[^\"]+?)\"?"
+        "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nversion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?",
+        "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nappVersion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?"
       ],
+      "depNameTemplate": "lscr.io/{{{depName}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "semver-coerced"
     }
   ],
   "packageRules": [
     {
-      "matchManagers": [
-        "custom.regex"
-      ],
-      "groupName": "Helm image and chart metadata updates",
-      "commitMessageTopic": "{{depName}}",
-      "separateMultipleMajor": false,
-      "separateMinorPatch": false
+      "matchPackageNames": ["lscr.io/linuxserver/bazarr"],
+      "groupName": "bazarr",
+      "additionalBranchPrefix": "bazarr-"
+    },
+    {
+      "matchPackageNames": ["lscr.io/linuxserver/radarr"],
+      "groupName": "radarr",
+      "additionalBranchPrefix": "radarr-"
+    },
+    {
+      "matchPackageNames": ["lscr.io/linuxserver/sonarr"],
+      "groupName": "sonarr",
+      "additionalBranchPrefix": "sonarr-"
+    },
+    {
+      "matchPackageNames": ["lscr.io/linuxserver/prowlarr"],
+      "groupName": "prowlarr",
+      "additionalBranchPrefix": "prowlarr-"
+    },
+    {
+      "matchPackageNames": ["lscr.io/linuxserver/qbittorrent"],
+      "groupName": "qbittorrent",
+      "additionalBranchPrefix": "qbittorrent-"
     }
   ]
 }
