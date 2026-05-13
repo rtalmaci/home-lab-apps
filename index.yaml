@@ -3,6 +3,21 @@ entries:
   bazarr:
   - apiVersion: v2
     appVersion: 1.5.6
+    created: "2026-05-13T16:14:28.647623254Z"
+    description: bazarr helm chart for Kubernetes
+    digest: 24e256947ce56959d45e57819a8ecbd72ced9e58d7c6520960879dc7596151a5
+    home: https://github.com/morpheus65535/bazarr
+    kubeVersion: '>=1.23.0-0'
+    name: bazarr
+    sources:
+    - https://github.com/morpheus65535/bazarr
+    - https://docs.linuxserver.io/images/docker-bazarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/bazarr-1.5.7/bazarr-1.5.7.tgz
+    version: 1.5.7
+  - apiVersion: v2
+    appVersion: 1.5.6
     created: "2026-04-21T08:03:46.484222345Z"
     description: bazarr helm chart for Kubernetes
     digest: 26158d018fa176fe6f1014397bbff3b7a7652ac921760bfdceb7a07b05840dcb
@@ -350,4 +365,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-21T14:26:10.41573308Z"
+generated: "2026-05-13T16:14:28.647690209Z"
