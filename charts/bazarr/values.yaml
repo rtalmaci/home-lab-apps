@@ -123,6 +123,9 @@ resources:
   #   cpu: 100m
   #   memory: 128Mi
 
+# -- Init containers to add to the bazarr pods
+initContainers: []
+
 # -- Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
