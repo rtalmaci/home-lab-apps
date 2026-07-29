@@ -230,6 +230,21 @@ entries:
     version: 1.0.0
   radarr:
   - apiVersion: v2
+    appVersion: 6.3.0
+    created: "2026-07-29T19:29:34.919432979Z"
+    description: radarr helm chart for Kubernetes
+    digest: 1d40a9e517b0b113b47302b4ec361dd57d8c7e89896ed06fe6e7466589719d86
+    home: https://github.com/Radarr/Radarr
+    kubeVersion: '>=1.23.0-0'
+    name: radarr
+    sources:
+    - https://docs.linuxserver.io/images/docker-radarr/
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/radarr-6.3.0/radarr-6.3.0.tgz
+    version: 6.3.0
+  - apiVersion: v2
     appVersion: 6.1.1
     created: "2026-04-21T11:14:39.600735363Z"
     description: radarr helm chart for Kubernetes
@@ -365,4 +380,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-05-13T16:14:28.647690209Z"
+generated: "2026-07-29T19:29:34.919482514Z"
