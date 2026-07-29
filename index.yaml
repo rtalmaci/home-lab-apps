@@ -199,6 +199,21 @@ entries:
     version: 1.0.0
   qbittorrent:
   - apiVersion: v2
+    appVersion: 5.2.3
+    created: "2026-07-29T20:03:19.985698146Z"
+    description: qbittorrent helm chart for Kubernetes
+    digest: 997d97ad2b2b4911013512f429160c2401dd291fd23261dfa59dde695a68247a
+    home: https://github.com/qbittorrent/qBittorrent
+    kubeVersion: '>=1.23.0-0'
+    name: qbittorrent
+    sources:
+    - https://docs.linuxserver.io/images/docker-qbittorrent/
+    - https://github.com/qbittorrent/qBittorrent
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/qbittorrent-5.2.3/qbittorrent-5.2.3.tgz
+    version: 5.2.3
+  - apiVersion: v2
     appVersion: 5.1.4
     created: "2026-04-21T14:26:10.415691733Z"
     description: qbittorrent helm chart for Kubernetes
@@ -410,4 +425,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-07-29T19:30:01.492257467Z"
+generated: "2026-07-29T20:03:19.985752477Z"
