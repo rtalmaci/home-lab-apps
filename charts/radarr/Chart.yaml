@@ -4,10 +4,10 @@ name: radarr
 description: radarr helm chart for Kubernetes
 type: application
 # image: lscr.io/linuxserver/radarr
-version: 6.1.1
+version: 6.3.0
 
 # image: lscr.io/linuxserver/radarr
-appVersion: "6.1.1"
+appVersion: "6.3.0"
 maintainers: []
 sources:
   - https://docs.linuxserver.io/images/docker-radarr/
