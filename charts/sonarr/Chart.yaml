@@ -4,7 +4,7 @@ name: sonarr
 description: sonarr helm chart for Kubernetes
 type: application
 # image: lscr.io/linuxserver/sonarr
-version: 4.0.19
+version: 4.0.20
 
 # image: lscr.io/linuxserver/sonarr
 appVersion: "4.0.19"

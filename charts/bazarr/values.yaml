@@ -1,11 +1,11 @@
 replicaCount: 1
 
 image:
-  registry: lscr.io
-  repository: linuxserver/bazarr
+  registry: ghcr.io
+  repository: lavx/bazarr
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "1.6.0"
+  tag: "2.7.2"
   sha: ""
 
 imagePullSecrets: []

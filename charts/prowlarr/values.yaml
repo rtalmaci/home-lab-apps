@@ -16,6 +16,15 @@ fullnameOverride: ""
 strategy:
   type: Recreate
 
+# -- Additional sidecar containers (rendered after the main container; pair with volumes/volumeMounts)
+extraContainers: []
+
+# -- Additional volumes on the Deployment
+volumes: []
+
+# -- Additional volumeMounts on the main container
+volumeMounts: []
+
 # -- Environment variables to add to the prowlarr pods
 extraEnv: []
 # -- Environment variables from secrets or configmaps to add to the prowlarr pods
