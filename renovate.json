@@ -13,44 +13,55 @@
         "/(^|/)Chart\\.yaml$/"
       ],
       "matchStrings": [
-        "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nversion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?",
         "#\\s*image:\\s*(?<depName>\\S+)\\r?\\nappVersion:\\s*\"?(?<currentValue>[\\w+\\.-]+)\"?"
       ],
       "depNameTemplate": "{{{depName}}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver",
-      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+)$"
+      "versioningTemplate": "loose",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+(\\.\\d+)?)$"
     }
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["lscr.io/linuxserver/"],
-      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/"
+      "matchPackagePatterns": [
+        "lscr.io/linuxserver/"
+      ],
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+(\\.\\d+)?$/"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/qbittorrent"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/qbittorrent"
+      ],
       "allowedVersions": "!/^(14|20)\\./",
       "groupName": "qbittorrent",
       "additionalBranchPrefix": "qbittorrent-"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/sonarr"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/sonarr"
+      ],
       "allowedVersions": "!/^5\\./",
       "groupName": "sonarr",
       "additionalBranchPrefix": "sonarr-"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/bazarr"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/bazarr"
+      ],
       "groupName": "bazarr",
       "additionalBranchPrefix": "bazarr-"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/radarr"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/radarr"
+      ],
       "groupName": "radarr",
       "additionalBranchPrefix": "radarr-"
     },
     {
-      "matchPackageNames": ["lscr.io/linuxserver/prowlarr"],
+      "matchPackageNames": [
+        "lscr.io/linuxserver/prowlarr"
+      ],
       "groupName": "prowlarr",
       "additionalBranchPrefix": "prowlarr-"
     }

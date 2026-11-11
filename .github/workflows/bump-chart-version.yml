@@ -1,0 +1,42 @@
+name: Bump chart version on appVersion change
+
+# Renovate updates appVersion in Chart.yaml; the published chart needs a new
+# (semver, 3-part) `version` for chart-releaser to publish it.
+on:
+  pull_request:
+    paths:
+      - "charts/*/Chart.yaml"
+
+jobs:
+  bump:
+    if: github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Bump patch version where appVersion changed but version did not
+        run: |
+          set -eu
+          base="origin/${{ github.base_ref }}"
+          changed=0
+          for f in $(git diff --name-only "$base"...HEAD -- 'charts/*/Chart.yaml'); do
+            old_app=$(git show "$base:$f" | sed -n 's/^appVersion: *"\{0,1\}\([^"]*\)"\{0,1\}$/\1/p')
+            new_app=$(sed -n 's/^appVersion: *"\{0,1\}\([^"]*\)"\{0,1\}$/\1/p' "$f")
+            old_ver=$(git show "$base:$f" | sed -n 's/^version: *\(.*\)$/\1/p')
+            new_ver=$(sed -n 's/^version: *\(.*\)$/\1/p' "$f")
+            if [ "$old_app" != "$new_app" ] && [ "$old_ver" = "$new_ver" ]; then
+              major_minor=${old_ver%.*}; patch=${old_ver##*.}
+              sed -i "s/^version: .*/version: $major_minor.$((patch+1))/" "$f"
+              changed=1
+            fi
+          done
+          if [ "$changed" = 1 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Bump chart version for appVersion update"
+            git push
+          fi
