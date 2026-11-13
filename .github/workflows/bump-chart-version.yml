@@ -9,7 +9,9 @@ on:
 
 jobs:
   bump:
-    if: github.actor == 'renovate[bot]'
+    # Self-hosted Renovate opens PRs with a PAT, so github.actor is the PAT's user, not
+    # renovate[bot]; match on the branch prefix instead.
+    if: startsWith(github.head_ref, 'renovate/')
     runs-on: ubuntu-latest
     permissions:
       contents: write

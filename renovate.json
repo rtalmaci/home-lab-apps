@@ -17,16 +17,16 @@
       ],
       "depNameTemplate": "{{{depName}}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose",
-      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+(\\.\\d+)?)$"
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "lscr.io/linuxserver/"
-      ],
-      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+(\\.\\d+)?$/"
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/",
+      "matchPackageNames": [
+        "lscr.io/linuxserver/**"
+      ]
     },
     {
       "matchPackageNames": [

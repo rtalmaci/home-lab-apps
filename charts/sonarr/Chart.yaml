@@ -7,7 +7,7 @@ type: application
 version: 4.0.21
 
 # image: lscr.io/linuxserver/sonarr
-appVersion: "4.0.20.3014"
+appVersion: "4.0.20"
 maintainers: []
 sources:
   - https://github.com/Sonarr/Sonarr
