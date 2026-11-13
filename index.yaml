@@ -123,6 +123,21 @@ entries:
     version: 1.0.0
   prowlarr:
   - apiVersion: v2
+    appVersion: 2.7.0
+    created: "2026-11-13T12:48:22.400721597Z"
+    description: prowlarr helm chart for Kubernetes
+    digest: 164d3a28d21e180d11323454c2aecd127ee2f65752abe67205b6a3fe904eaf23
+    home: https://github.com/prowlarr/prowlarr
+    kubeVersion: '>=1.23.0-0'
+    name: prowlarr
+    sources:
+    - https://github.com/prowlarr/prowlarr
+    - https://docs.linuxserver.io/images/docker-prowlarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/prowlarr-2.5.4/prowlarr-2.5.4.tgz
+    version: 2.5.4
+  - apiVersion: v2
     appVersion: 2.5.2
     created: "2026-10-29T13:16:15.672078108Z"
     description: prowlarr helm chart for Kubernetes
@@ -305,6 +320,21 @@ entries:
     version: 1.0.0
   radarr:
   - apiVersion: v2
+    appVersion: 6.4.4
+    created: "2026-11-13T12:48:22.609148238Z"
+    description: radarr helm chart for Kubernetes
+    digest: 7dca9541efd474f3b56351708a92e8be26916f79b97728330c7c42b8c8d16e2c
+    home: https://github.com/Radarr/Radarr
+    kubeVersion: '>=1.23.0-0'
+    name: radarr
+    sources:
+    - https://docs.linuxserver.io/images/docker-radarr/
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/radarr-6.3.2/radarr-6.3.2.tgz
+    version: 6.3.2
+  - apiVersion: v2
     appVersion: 6.3.0
     created: "2026-10-29T13:16:15.862198912Z"
     description: radarr helm chart for Kubernetes
@@ -411,6 +441,21 @@ entries:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-5.14/sonarr-5.14.tgz
     version: "5.14"
   - apiVersion: v2
+    appVersion: 4.0.20
+    created: "2026-11-13T12:48:22.789179188Z"
+    description: sonarr helm chart for Kubernetes
+    digest: 4c3f4fd392d2942a4373f0707ff2d7b92836f6e21a34c85e01762c858485141e
+    home: https://github.com/Sonarr/Sonarr
+    kubeVersion: '>=1.23.0-0'
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    - https://docs.linuxserver.io/images/docker-sonarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-4.0.21/sonarr-4.0.21.tgz
+    version: 4.0.21
+  - apiVersion: v2
     appVersion: 4.0.19
     created: "2026-10-29T13:16:16.038734845Z"
     description: sonarr helm chart for Kubernetes
@@ -500,4 +545,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-10-29T13:16:16.038848278Z"
+generated: "2026-11-13T12:48:22.789268336Z"
