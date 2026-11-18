@@ -29,14 +29,6 @@
       ]
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "automerge": true,
-      "automergeType": "pr"
-    },
-    {
       "matchPackageNames": [
         "lscr.io/linuxserver/qbittorrent"
       ],
@@ -76,5 +68,8 @@
   ],
   "gitIgnoredAuthors": [
     "41898282+github-actions[bot]@users.noreply.github.com"
-  ]
+  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "ignoreTests": false
 }

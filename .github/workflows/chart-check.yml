@@ -1,0 +1,40 @@
+name: Chart Check
+
+# On PRs that touch a chart's Chart.yaml (Renovate image bumps):
+#  1. bump the chart `version` if appVersion changed and version did not,
+#  2. validate that the app bump does not require chart changes,
+#  3. publish the result as the commit status `chart-check` on the final PR head.
+# Renovate automerge waits for this status. A status is used (not only the job's
+# check run) because the bump commit is pushed with GITHUB_TOKEN, which does not
+# trigger new workflow runs, so the new head SHA would otherwise have no checks.
+on:
+  pull_request:
+    paths:
+      - "charts/*/Chart.yaml"
+
+concurrency:
+  group: chart-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  chart-check:
+    name: chart-check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      BASE_REF: ${{ github.base_ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: azure/setup-helm@v4
+      - name: Bump chart version and validate
+        run: python3 .github/scripts/chart_check.py
