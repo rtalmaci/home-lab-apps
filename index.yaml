@@ -123,6 +123,21 @@ entries:
     version: 1.0.0
   prowlarr:
   - apiVersion: v2
+    appVersion: 3.1.0
+    created: "2026-11-24T23:03:33.413404638Z"
+    description: prowlarr helm chart for Kubernetes
+    digest: 1b29fb38b297eb339e255fa7aea573ffc3196f7f8d3e5788e2f4e56d5f6c1b9e
+    home: https://github.com/prowlarr/prowlarr
+    kubeVersion: '>=1.23.0-0'
+    name: prowlarr
+    sources:
+    - https://github.com/prowlarr/prowlarr
+    - https://docs.linuxserver.io/images/docker-prowlarr/
+    type: application
+    urls:
+    - https://github.com/rtalmaci/home-lab-apps/releases/download/prowlarr-2.5.6/prowlarr-2.5.6.tgz
+    version: 2.5.6
+  - apiVersion: v2
     appVersion: 3.0.2
     created: "2026-11-18T15:59:02.020884437Z"
     description: prowlarr helm chart for Kubernetes
@@ -590,4 +605,4 @@ entries:
     urls:
     - https://github.com/rtalmaci/home-lab-apps/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-11-18T15:59:26.483139223Z"
+generated: "2026-11-24T23:03:33.413531273Z"
