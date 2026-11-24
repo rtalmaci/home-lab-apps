@@ -6,7 +6,7 @@ type: application
 # image: lscr.io/linuxserver/prowlarr
 version: 2.5.5
 # image: lscr.io/linuxserver/prowlarr
-appVersion: "3.0.2"
+appVersion: "3.1.0"
 maintainers: []
 sources:
   - https://github.com/prowlarr/prowlarr
